@@ -1,9 +1,23 @@
-module Add
-    module_function
+require_relative 'find_food'
 
-    def add
-        puts "What food would you like to add?"
-        food = gets.chomp
-        "You have added #{food} to your pantry"
+module Add_food
+
+ADD_COMAND = 'add'
+
+module_function
+
+  def add_item pantry
+    puts "Please enter the food name"
+    item = gets.strip.downcase
+    puts "Please enter amount to add"
+    amount = gets.strip.to_f
+    if Find_food.is_in_pantry pantry,item
+      pantry[item] += amount
+    else
+      pantry.store(item, amount)
     end
+    pantry.each {|key, value| puts "#{key} : #{value}" }
+  end
+
 end
+
