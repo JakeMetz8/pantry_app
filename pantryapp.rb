@@ -15,11 +15,12 @@ end
 
 pantry={}
 
-cli = HighLine.new
-################# MENU STYLE #1
+puts "PANTRY APP MENU".colorize(:color => :black, :background => :light_green)
+
+gem = HighLine.new
 loop do
-cli.choose do |menu|
-    puts "PANTRY APP MENU".colorize(:color => :black, :background => :light_green)
+gem.choose do |menu|
+    
     menu.choice("Add food to your pantry".colorize(:light_green)) { (Add_food::add_item(pantry) ) }
     menu.choice("Take food from your pantry".colorize(:light_green)) { ( Take_food_out::remove_item(pantry) ) }
     menu.choice("List the food you have in your pantry".colorize(:light_green)) { ( List_food::list_all(pantry) ) }
@@ -31,28 +32,6 @@ cli.choose do |menu|
   end
 end
 
-  
-
 end
 
 
-#welcome prompt
-
-#display pantry navigation menu and list options 
-
-#user selects option from navigation
-
-#def start, take input, execute module file
-    #module: add_food
-
-    #module: take_food
-
-    #module: list_food
-
-    #module: find_food
-
-    #module: shopping_list
-
-#loop back to navigation menu
-
-#end upon exit option
